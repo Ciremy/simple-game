@@ -4,6 +4,8 @@ let yPos = 0;
 mainLoop();
 
 function mainLoop() {
+  app;
+
   //scenario
   moving("up");
   moving("up");
