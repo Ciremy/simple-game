@@ -16,3 +16,7 @@ m for movement
 f for fire
 i for interaction
 (some will be added later)
+
+##Conf File
+
+The configuration file can configurate the port entry, the hostname and some game setting like the position of the point at the start of the game.
