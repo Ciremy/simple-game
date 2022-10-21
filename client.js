@@ -49,6 +49,7 @@ rl.on("line", (input) => {
       break;
     default:
       payload = utf8Encode.encode("invalid input");
+      console.log("invalid input");
       break;
   }
 
