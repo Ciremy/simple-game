@@ -12,36 +12,39 @@ server.on("error", function (error) {
 
 server.on("message", function (msg, info) {
   console.log(msg);
-
   let utf8Decode = new TextDecoder();
-  let decodedMsg = utf8Decode.decode(msg);
+  if (utf8Decode.decode(msg) == "invalid input") {
+    console.log("invalid input");
+  } else {
+    let decodedMsg = utf8Decode.decode(msg);
 
-  console.log(
-    "Received %d bytes from %s:%d\n",
-    msg.length,
-    info.address,
-    info.port
-  );
+    console.log(
+      "Received %d bytes from %s:%d\n",
+      msg.length,
+      info.address,
+      info.port
+    );
 
-  let direction = decodedMsg.substring(13, 14);
-  console.log(direction);
-  switch (direction) {
-    case "h":
-      xPos += 1;
-      break;
-    case "b":
-      xPos -= 1;
-      break;
-    case "d":
-      yPos += 1;
-      break;
-    case "g":
-      yPos -= 1;
-      break;
-    default:
-      break;
+    let direction = decodedMsg.substring(13, 14);
+    console.log(direction);
+    switch (direction) {
+      case "h":
+        xPos += 1;
+        break;
+      case "b":
+        xPos -= 1;
+        break;
+      case "d":
+        yPos += 1;
+        break;
+      case "g":
+        yPos -= 1;
+        break;
+      default:
+        break;
+    }
+    console.log("xPos: " + xPos + " yPos: " + yPos);
   }
-  console.log("xPos: " + xPos + " yPos: " + yPos);
 });
 
 server.on("listening", function () {
