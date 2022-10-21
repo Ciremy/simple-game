@@ -1,3 +1,5 @@
+const config = require('./conf.json');
+
 var udp = require("dgram");
 
 // --------------------creating a udp server --------------------
@@ -21,14 +23,7 @@ server.on("message", function (msg, info) {
     info.port
   );
 
-  //sending msg
-  // server.send(msg, info.port, "localhost", function (error) {
-  //   if (error) {
-  //     client.close();
-  //   } else {
-  //     console.log("Data sent !!!");
-  //   }
-  // });
+
 });
 
 //emits when socket is ready and listening for datagram msgs
@@ -47,8 +42,10 @@ server.on("close", function () {
   console.log("Socket is closed !");
 });
 
-server.bind(2222);
+server.bind(config.host.port);
 
 // setTimeout(function () {
 //   server.close();
 // }, 8000);
+
+
