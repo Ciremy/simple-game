@@ -1,5 +1,5 @@
-var buffer = require("buffer");
 var udp = require("dgram");
+const config = require("./conf.json");
 const readline = require("readline");
 var today = new Date();
 const rl = readline.createInterface({
@@ -28,7 +28,7 @@ rl.on("line", (input) => {
       break;
   }
 
-  client.send(payload, 2222, "localhost", function (error) {
+  client.send(payload, config.host.port, "localhost", function (error) {
     if (error) {
       client.close();
     } else {

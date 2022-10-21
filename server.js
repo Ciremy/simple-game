@@ -26,13 +26,13 @@ server.on("message", function (msg, info) {
     case "h":
       xPos += 1;
       break;
-    case "d":
+    case "b":
       xPos -= 1;
       break;
-    case "r":
+    case "d":
       yPos += 1;
       break;
-    case "l":
+    case "g":
       yPos -= 1;
       break;
     default:
@@ -46,7 +46,7 @@ server.on("listening", function () {
   var port = address.port;
   var family = address.family;
   var ipaddr = address.address;
-  console.log("Server is listening at port" + port);
+  console.log("Server is listening at port :" + port);
   console.log("Server ip :" + ipaddr);
   console.log("Server is IP4/IP6 : " + family);
 });
