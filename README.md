@@ -12,9 +12,9 @@ The Format is :
 ```
 
 In data type, there is 3 types of data :
-m for movement
-f for fire
-i for interaction
+0 for movement
+1 for fire
+2 for interaction
 (some will be added later)
 
 ##Conf File

@@ -1,4 +1,5 @@
 var udp = require("dgram");
+var buffer = require("buffer");
 const config = require("./conf.json");
 const readline = require("readline");
 var today = new Date();
@@ -10,24 +11,45 @@ const rl = readline.createInterface({
 var client = udp.createSocket("udp4");
 
 rl.on("line", (input) => {
-  let payload = "";
+  let payload;
+  let utf8Encode = new TextEncoder();
+  let length;
+  let type;
+  let direction;
+  let date;
+
   switch (input) {
     case "haut":
-      payload = `${input.length},m,${today.toISOString()},h`;
+      length = input.length;
+      type = 0;
+      date = today.getTime();
+      direction = "h";
+      payload = utf8Encode.encode(length + type + date + direction);
       break;
     case "bas":
-      payload = `${input.length},m,${today.toISOString()},b`;
+      length = input.length;
+      type = 0;
+      date = today.getTime();
+      direction = "b";
+      payload = utf8Encode.encode(length + type + date + direction);
       break;
     case "gauche":
-      payload = `${input.length},m,${today.toISOString()},g`;
+      length = input.length;
+      type = 0;
+      date = today.getTime();
+      direction = "g";
+      payload = utf8Encode.encode(length + type + date + direction);
       break;
     case "droite":
-      payload = `${input.length},m,${today.toISOString()},d`;
+      length = input.length;
+      type = 0;
+      date = today.getTime();
+      direction = "d";
+      payload = utf8Encode.encode(length + type + date + direction);
       break;
     default:
       break;
   }
-
   client.send(payload, config.host.port, "localhost", function (error) {
     if (error) {
       client.close();

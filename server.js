@@ -11,7 +11,10 @@ server.on("error", function (error) {
 });
 
 server.on("message", function (msg, info) {
-  console.log(msg.toString());
+  console.log(msg);
+
+  let utf8Decode = new TextDecoder();
+  let decodedMsg = utf8Decode.decode(msg);
 
   console.log(
     "Received %d bytes from %s:%d\n",
@@ -20,7 +23,7 @@ server.on("message", function (msg, info) {
     info.port
   );
 
-  let direction = msg.toString().split(",")[3];
+  let direction = decodedMsg.substring(13, 14);
   console.log(direction);
   switch (direction) {
     case "h":
@@ -56,7 +59,3 @@ server.on("close", function () {
 });
 
 server.bind(config.host.port);
-
-// setTimeout(function () {
-//   server.close();
-// }, 8000);
