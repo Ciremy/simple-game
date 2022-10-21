@@ -1,3 +1,5 @@
+const config = require("./conf.json");
+
 var udp = require("dgram");
 var server = udp.createSocket("udp4");
 let xPos = 0;
@@ -53,4 +55,8 @@ server.on("close", function () {
   console.log("Socket is closed !");
 });
 
-server.bind(2222);
+server.bind(config.host.port);
+
+// setTimeout(function () {
+//   server.close();
+// }, 8000);
