@@ -2,8 +2,8 @@ const config = require("./conf.json");
 
 var udp = require("dgram");
 var server = udp.createSocket("udp4");
-let xPos = 0;
-let yPos = 0;
+let xPos = config.game_setting.game_xpos;
+let yPos = config.game_setting.game_ypos;
 
 server.on("error", function (error) {
   console.log("Error: " + error);
