@@ -50,6 +50,7 @@ rl.on("line", (input) => {
     default:
       break;
   }
+
   client.send(payload, config.host.port, "localhost", function (error) {
     if (error) {
       client.close();

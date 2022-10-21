@@ -5,10 +5,14 @@
 The protocol is a simple protocol that is used to communicate between the client and the server. The protocol is based on an string that is sent to the server. The main goal of the protocol is to be as optimized as possible.
 The Format is :
 
+first byte : the length of the initial message
+second byte : the type of the message
+third byte to the last : date of the message
+last byte : the message
+
 ```js
-`${dataSizeInChar},${typeOfData},${date},${data}`
 //so for exemple for moving up:
-4,m,2022-10-20T18:38:43.686Z,h
+406634661005h
 ```
 
 In data type, there is 3 types of data :
