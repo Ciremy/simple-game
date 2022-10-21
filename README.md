@@ -1,6 +1,6 @@
-#Protocol explaination
+# Protocol explaination
 
-##Protocol
+## Protocol
 
 The protocol is a simple protocol that is used to communicate between the client and the server. The protocol is based on an string that is sent to the server. The main goal of the protocol is to be as optimized as possible.
 The Format is :
@@ -17,6 +17,6 @@ In data type, there is 3 types of data :
 2 for interaction
 (some will be added later)
 
-##Conf File
+## Conf File
 
 The configuration file can configurate the port entry, the hostname and some game setting like the position of the point at the start of the game.
