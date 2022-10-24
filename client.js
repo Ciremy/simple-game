@@ -49,7 +49,6 @@ rl.on("line", (input) => {
       break;
     default:
       payload = utf8Encode.encode("invalid input");
-      console.log("invalid input");
       break;
   }
 
@@ -57,7 +56,11 @@ rl.on("line", (input) => {
     if (error) {
       client.close();
     } else {
-      console.log("Data sent !!!");
+      if (payload == utf8Encode.encode("invalid input")) {
+        console.log("invalid input");
+      } else {
+        console.log("Data sent successfully");
+      }
     }
   });
 });
